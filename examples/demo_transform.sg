@@ -1,0 +1,30 @@
+
+map f l = 
+    if isEmpty l then []
+    else cons (f (head l)) (map f (tail l))
+
+to_radians deg = deg * pi / 180.0
+
+rotation_matrix theta = 
+    let c = cos theta in
+    let s = sin theta in
+    mat [
+        [c, 0.0 - s], 
+        [s, c]
+    ]
+
+main = 
+    let angle = to_radians 90.0 in
+    let R = rotation_matrix angle in
+    
+    let points = [
+        vec [1.0, 0.0],
+        vec [1.0, 1.0],
+        vec [0.0, 1.0],
+        vec [0.0, 0.0]
+    ] in
+    
+    let f = \p -> mul R p in
+    let rotated_points = map f points in
+    
+    rotated_points

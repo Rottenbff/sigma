@@ -1,0 +1,8 @@
+main = 
+    let inputs = vec [0.5, 0.2, 0.1] in
+    let weights = mat [[0.8, 0.1, 0.5], [0.4, 0.9, 0.2]] in
+    let bias = vec [0.1, 0.6] in
+    let z = mul weights inputs in
+    let z_biased = vadd z bias in
+    let activation = sigmoid z_biased in
+    activation

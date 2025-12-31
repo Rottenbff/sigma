@@ -1,0 +1,30 @@
+
+
+map f l = 
+    if isEmpty l then []
+    else cons (f (head l)) (map f (tail l))
+
+range start end step =
+    if start > end then []
+    else cons start (range (start + step) end step)
+
+mandelbrot_iter z c iter max_iter = 
+    if iter > max_iter then max_iter
+    else if abs z > 2.0 then iter
+    else mandelbrot_iter (z * z + c) c (iter + 1) max_iter
+
+mandelbrot c = mandelbrot_iter (0.0 + 0.0i) c 0 20
+
+
+main = 
+    let real_parts = range (0.0 - 2.0) 1.0 1.0 in
+    let imag_parts = range (0.0 - 1.0) 1.0 1.0 in
+    
+    let points = [
+        (0.0 - 2.0) - 1.0i, (0.0 - 1.0) - 1.0i, 0.0 - 1.0i, 1.0 - 1.0i,
+        (0.0 - 2.0) + 0.0i, (0.0 - 1.0) + 0.0i, 0.0 + 0.0i, 1.0 + 0.0i,
+        (0.0 - 2.0) + 1.0i, (0.0 - 1.0) + 1.0i, 0.0 + 1.0i, 1.0 + 1.0i
+    ] in
+    
+    let results = map mandelbrot points in
+    results
