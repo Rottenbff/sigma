@@ -91,6 +91,13 @@ smooth data =
 *   `src/stdlib.rs`: Native implementations of standard library functions.
 *   `demo_*.sg`: Example scripts showcasing language features.
 
+## Version History Note
+*Development of this project began in 2023.* 
+Prior to December 2025, the source code was managed and hosted self-hosted 
+using **Clay**, a custom version control system I developed for my local 
+Dell Optiplex server. The commit history on GitHub represents the migration 
+snapshot and subsequent development.
+
 ## License
 
 This project is licensed under the MIT License.
